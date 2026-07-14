@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
+const connectDB = require('../config/db');
 
-const requireDatabase = (req, res, next) => {
-  if (mongoose.connection.readyState === 1) {
-    return next();
+const requireDatabase = async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    return res.status(503).json({
+      message: `Database is not connected: ${error.message}. Verify MONGODB_URI in your environment.`
+    });
   }
-
-  return res.status(503).json({
-    message: 'Database is not connected. Start MongoDB and verify MONGODB_URI in .env.'
-  });
 };
 
 module.exports = requireDatabase;
+
