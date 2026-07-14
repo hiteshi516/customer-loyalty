@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoyaltyPro - Customer Loyalty Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css?v=3">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <section class="marketing-page" id="marketingPage">
+    <header class="marketing-nav">
+      <div class="brand brand-dark">
+        <div class="brand-mark">LP</div>
+        <div>
+          <strong>LoyaltyPro</strong>
+          <span>Customer Rewards OS</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="text-btn" data-open-auth="login">Login</button>
+        <button class="primary-btn" data-open-auth="signup">Start Free</button>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Modern loyalty management for growing businesses</p>
+        <h1>Turn every purchase into a reason to come back.</h1>
+        <p class="hero-text">
+          Register customers, award points, redeem rewards, and track every loyalty movement from one beautiful dashboard.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn large-btn" data-open-auth="signup">Create Account</button>
+          <button class="secondary-btn large-btn" id="exploreBtn">Explore Features</button>
+        </div>
+        <div class="trust-row">
+          <span>CRUD APIs</span>
+          <span>MVC</span>
+          <span>MongoDB</span>
+          <span>Google Auth</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-1" aria-label="Product preview">
+        <div class="glass-card hero-dashboard">
+          <div class="mini-topbar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="score-card">
+            <p>Points Issued</p>
+            <strong>18,420</strong>
+            <span>+24% this month</span>
+          </div>
+          <div class="preview-grid">
+            <div>
+              <span>Total Customers</span>
+              <strong>1,248</strong>
+            </div>
+            <div>
+              <span>Redeemed</span>
+              <strong>6,850</strong>
+            </div>
+          </div>
+          <div class="activity-lines">
+            <span style="--w: 88%"></span>
+            <span style="--w: 68%"></span>
+            <span style="--w: 78%"></span>
+          </div>
+        </div>
+        <div class="floating-chip chip-one">+50 pts</div>
+        <div class="floating-chip chip-two">Reward redeemed</div>
+      </div>
+    </main>
+
+    <section class="feature-band" id="features">
+      <article>
+        <strong>01</strong>
+        <h2>Register Customers</h2>
+        <p>Store names, email, phone, join dates, and loyalty balances with validation.</p>
+      </article>
+      <article>
+        <strong>02</strong>
+        <h2>Award & Redeem</h2>
+        <p>Automatically calculate points from purchases and prevent invalid redemptions.</p>
+      </article>
+      <article>
+        <strong>03</strong>
+        <h2>Track Everything</h2>
+        <p>Dashboard metrics, recent transactions, top customers, and full history views.</p>
+      </article>
+    </section>
+
+    <section class="story-section">
+      <div class="section-heading">
+        <p class="eyebrow">How it works</p>
+        <h2>A smooth loyalty workflow from checkout to reward.</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-card reveal-on-scroll">
+          <span>Register</span>
+          <h3>Add customer details</h3>
+          <p>Create a customer profile with name, email, phone, join date, and starting point balance.</p>
+        </article>
+        <article class="timeline-card reveal-on-scroll">
+          <span>Purchase</span>
+          <h3>Calculate points</h3>
+          <p>Every purchase automatically converts amount into loyalty points using your business rule.</p>
+        </article>
+        <article class="timeline-card reveal-on-scroll">
+          <span>Redeem</span>
+          <h3>Reward repeat buyers</h3>
+          <p>Redeem points safely with balance checks and instant transaction history updates.</p>
+        </article>
+        <article class="timeline-card reveal-on-scroll">
+          <span>Report</span>
+          <h3>Track growth</h3>
+          <p>Monitor points issued, redeemed, top customers, and recent activity in a clean dashboard.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="calculator-section">
+      <div class="calculator-copy reveal-on-scroll">
+        <p class="eyebrow">Interactive points calculator</p>
+        <h2>Show your teacher the business logic instantly.</h2>
+        <p>Move the purchase amount and watch the loyalty points change using the exact rule from the backend: INR 100 equals 10 points.</p>
+      </div>
+      <div class="calculator-card reveal-on-scroll">
+        <label>
+          Purchase Amount
+          <input id="pointsRange" type="range" min="100" max="10000" step="100" value="2500">
+        </label>
+        <div class="calc-result">
+          <div>
+            <span>Amount</span>
+            <strong id="calcAmount">INR 2,500</strong>
+          </div>
+          <div>
+            <span>Points Earned</span>
+            <strong id="calcPoints">250</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture-section">
+      <div class="section-heading">
+        <p class="eyebrow">Backend project highlights</p>
+        <h2>Built to look good and explain well in a viva.</h2>
+      </div>
+      <div class="architecture-grid">
+        <article class="reveal-on-scroll">
+          <h3>MVC Architecture</h3>
+          <p>Models, routes, controllers, middleware, and public assets are separated cleanly.</p>
+        </article>
+        <article class="reveal-on-scroll">
+          <h3>Protected REST APIs</h3>
+          <p>Signup/login creates JWT sessions, and loyalty APIs require authentication.</p>
+        </article>
+        <article class="reveal-on-scroll">
+          <h3>MongoDB Atlas</h3>
+          <p>Customers and transactions are stored with Mongoose schemas and validation.</p>
+        </article>
+        <article class="reveal-on-scroll">
+          <h3>Google Auth Ready</h3>
+          <p>Google Identity Services are connected through your OAuth Client ID.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase-section">
+      <div class="showcase-panel reveal-on-scroll">
+        <div>
+          <p class="eyebrow">Final presentation ready</p>
+          <h2>From landing page to authenticated dashboard.</h2>
+          <p>Use the public page to introduce the idea, login to show protected access, then demonstrate customer CRUD, purchases, redemptions, and history tracking.</p>
+        </div>
+        <button class="primary-btn large-btn" data-open-auth="signup">Launch Dashboard</button>
+      </div>
+    </section>
+  </section>
+
+  <section class="auth-page hidden" id="authPage">
+    <button class="back-btn" id="backToLandingBtn">Back</button>
+    <div class="auth-shell">
+      <aside class="auth-story">
+        <div class="brand brand-dark">
+          <div class="brand-mark">LP</div>
+          <div>
+            <strong>LoyaltyPro</strong>
+            <span>Secure business access</span>
+          </div>
+        </div>
+        <h2>Manage points, rewards, customers, and reports from one place.</h2>
+        <div class="auth-stats">
+          <div><strong>10 pts</strong><span>per INR 100</span></div>
+          <div><strong>JWT</strong><span>protected APIs</span></div>
+          <div><strong>Live</strong><span>dashboard</span></div>
+        </div>
+      </aside>
+
+      <section class="auth-card">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth-mode="login">Login</button>
+          <button class="auth-tab" data-auth-mode="signup">Signup</button>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <div>
+            <p class="eyebrow" id="authEyebrow">Welcome back</p>
+            <h1 id="authTitle">Login to your workspace</h1>
+          </div>
+          <label class="signup-only hidden">
+            Full Name
+            <input name="name" type="text" minlength="2" placeholder="Aarav Mehta">
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="you@business.com" required>
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" minlength="6" placeholder="Minimum 6 characters" required>
+          </label>
+          <button class="primary-btn large-btn" type="submit" id="authSubmitBtn">Login</button>
+        </form>
+
+        <div class="divider"><span>or continue with</span></div>
+        <div id="googleButton" class="google-button"></div>
+        <p class="google-note" id="googleNote">Add a Google Client ID in `.env` to enable real Google sign-in.</p>
+      </section>
+    </div>
+  </section>
+
+  <div class="app-shell hidden" id="appShell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">LP</div>
+        <div>
+          <strong>LoyaltyPro</strong>
+          <span>Rewards Console</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-link active" data-view="dashboard">Dashboard</button>
+        <button class="nav-link" data-view="customers">Customers</button>
+        <button class="nav-link" data-view="purchase">Add Purchase</button>
+        <button class="nav-link" data-view="redeem">Redeem</button>
+        <button class="nav-link" data-view="transactions">Transactions</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Customer Loyalty Management System</p>
+          <h1 id="pageTitle">Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <div class="user-pill" id="userPill">User</div>
+          <button class="secondary-btn" id="logoutBtn">Logout</button>
+          <button class="primary-btn" id="quickAddBtn">+ Add Customer</button>
+        </div>
+      </header>
+
+      <section class="toast" id="toast" aria-live="polite"></section>
+
+      <section class="view active" id="dashboardView">
+        <div class="metric-grid">
+          <article class="metric interactive-card">
+            <span>Total Customers</span>
+            <strong id="totalCustomers">0</strong>
+          </article>
+          <article class="metric interactive-card">
+            <span>Points Issued</span>
+            <strong id="pointsIssued">0</strong>
+          </article>
+          <article class="metric interactive-card">
+            <span>Points Redeemed</span>
+            <strong id="pointsRedeemed">0</strong>
+          </article>
+          <article class="metric interactive-card">
+            <span>Purchase Revenue</span>
+            <strong id="purchaseRevenue">INR 0</strong>
+          </article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Recent Transactions</h2>
+            </div>
+            <div class="list" id="recentTransactions"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Top 5 Loyal Customers</h2>
+            </div>
+            <div class="list" id="topCustomers"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="customersView">
+        <div class="toolbar">
+          <input id="searchInput" type="search" placeholder="Search by name, email, or phone">
+          <select id="sortSelect">
+            <option value="recent">Newest first</option>
+            <option value="points">Highest points</option>
+            <option value="name">Name A-Z</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Customer List</h2>
+            <span id="customerCount">0 customers</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Points</th>
+                  <th>Join Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="customerTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="purchaseView">
+        <section class="form-panel">
+          <h2>Add Purchase</h2>
+          <form id="purchaseForm">
+            <label>
+              Customer
+              <select name="customerId" required></select>
+            </label>
+            <label>
+              Purchase Amount
+              <input name="amount" type="number" min="100" step="1" placeholder="500" required>
+            </label>
+            <label>
+              Note
+              <input name="note" type="text" maxlength="140" placeholder="Invoice number or purchase details">
+            </label>
+            <p class="helper">Rule: every INR 100 gives 10 loyalty points.</p>
+            <button class="primary-btn" type="submit">Award Points</button>
+          </form>
+        </section>
+      </section>
+
+      <section class="view" id="redeemView">
+        <section class="form-panel">
+          <h2>Redeem Points</h2>
+          <form id="redeemForm">
+            <label>
+              Customer
+              <select name="customerId" required></select>
+            </label>
+            <label>
+              Points to Redeem
+              <input name="points" type="number" min="1" step="1" placeholder="100" required>
+            </label>
+            <label>
+              Note
+              <input name="note" type="text" maxlength="140" placeholder="Reward name or coupon code">
+            </label>
+            <button class="primary-btn" type="submit">Redeem Reward</button>
+          </form>
+        </section>
+      </section>
+
+      <section class="view" id="transactionsView">
+        <div class="toolbar">
+          <select id="transactionType">
+            <option value="">All transaction types</option>
+            <option value="Purchase">Purchases</option>
+            <option value="Redeem">Redemptions</option>
+          </select>
+        </div>
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Transaction History</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Points</th>
+                  <th>Balance</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="transactionTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="customerDialog">
+    <form id="customerForm" method="dialog">
+      <div class="dialog-heading">
+        <h2 id="customerFormTitle">Add Customer</h2>
+        <button type="button" class="icon-btn" id="closeDialogBtn">x</button>
+      </div>
+      <input type="hidden" name="id">
+      <label>
+        Full Name
+        <input name="name" type="text" minlength="2" placeholder="Aarav Mehta" required>
+      </label>
+      <label>
+        Email
+        <input name="email" type="email" placeholder="aarav@example.com" required>
+      </label>
+      <label>
+        Phone
+        <input name="phone" type="tel" placeholder="+91 98765 43210" required>
+      </label>
+      <div class="dialog-actions">
+        <button type="button" class="secondary-btn" id="cancelDialogBtn">Cancel</button>
+        <button type="submit" class="primary-btn">Save Customer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/js/app.js?v=3"></script>
+</body>
+</html>
